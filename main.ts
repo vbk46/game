@@ -1,7 +1,5 @@
 function game2 () {
-    while (false) {
-        carnival.startCountdownGame(60, carnival.WinTypes.Win)
-    }
+    carnival.startCountdownGame(60, carnival.WinTypes.Win)
     carnival.showTimer(false)
     scene.setBackgroundImage(img`
         9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
@@ -167,11 +165,9 @@ function game2 () {
 myEvil_Duck.setPosition(148, 2)
 }
 function game1 () {
-    while (false) {
-        carnival.startCountdownGame(60, carnival.WinTypes.Win)
-    }
-    game.splash("Try hard mode next time")
+    carnival.startCountdownGame(60, carnival.WinTypes.Win)
     carnival.showTimer(false)
+    game.splash("Try hard mode next time")
     scene.setBackgroundImage(img`
         9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
         9999999999999999999999999999999999999999999999999999111111111119999999999999999999999999999999999999991111999999999999999999999999999999999999999999111111111111
@@ -340,6 +336,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 })
 let myEvil_Duck: Sprite = null
 let myHero: Sprite = null
+while (game.ask("You wanna play hard mode?", "or you're too scared?")) {
+	
+}
 if (game.ask("You wanna play hard mode?", "or you're too scared?")) {
     game2()
 } else {
