@@ -13,13 +13,15 @@
         "assets.json",
         "tilemap.g.jres",
         "tilemap.g.ts",
-        "main.py"
+        "main.py",
+        "images.g.jres",
+        "images.g.ts"
     ],
     "testFiles": [
         "test.ts"
     ],
     "targetVersions": {
-        "target": "1.12.18",
+        "target": "1.12.21",
         "targetId": "arcade"
     },
     "supportedTargets": [
