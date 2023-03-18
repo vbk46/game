@@ -310,60 +310,39 @@ function game1 () {
         `, SpriteKind.Player)
     controller.moveSprite(myHero)
     myHero.setStayInScreen(true)
-    myEvil_Duck = sprites.create(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . b 5 5 b . . . 
-        . . . . . . b b b b b b . . . . 
-        . . . . . b b 5 5 5 5 5 b . . . 
-        . b b b b b 5 5 5 5 5 5 5 b . . 
-        . b d 5 b 5 5 5 5 5 5 5 5 b . . 
-        . . b 5 5 b 5 d 1 f 5 d 4 f . . 
-        . . b d 5 5 b 1 f f 5 4 4 c . . 
-        b b d b 5 5 5 d f b 4 4 4 4 b . 
-        b d d c d 5 5 b 5 4 4 4 4 4 4 b 
-        c d d d c c b 5 5 5 5 5 5 5 b . 
-        c b d d d d d 5 5 5 5 5 5 5 b . 
-        . c d d d d d d 5 5 5 5 5 d b . 
-        . . c b d d d d d 5 5 5 b b . . 
-        . . . c c c c c c c c b b . . . 
-        `, SpriteKind.Enemy)
-    myEvil_Duck.follow(myHero, 50, 50)
-myEvil_Duck.setPosition(148, 2)
+    for (let index = 0; index < 6; index++) {
+        pause(10000)
+        info.changeScoreBy(1)
+        myEvil_Duck = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . b 5 5 b . . . 
+            . . . . . . b b b b b b . . . . 
+            . . . . . b b 5 5 5 5 5 b . . . 
+            . b b b b b 5 5 5 5 5 5 5 b . . 
+            . b d 5 b 5 5 5 5 5 5 5 5 b . . 
+            . . b 5 5 b 5 d 1 f 5 d 4 f . . 
+            . . b d 5 5 b 1 f f 5 4 4 c . . 
+            b b d b 5 5 5 d f b 4 4 4 4 b . 
+            b d d c d 5 5 b 5 4 4 4 4 4 4 b 
+            c d d d c c b 5 5 5 5 5 5 5 b . 
+            c b d d d d d 5 5 5 5 5 5 5 b . 
+            . c d d d d d d 5 5 5 5 5 d b . 
+            . . c b d d d d d 5 5 5 b b . . 
+            . . . c c c c c c c c b b . . . 
+            `, SpriteKind.Enemy)
+        myEvil_Duck.setPosition(148, 2)
+        myEvil_Duck.follow(myHero, 50, 50)
+    }
+    return info.score()
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     game.over(false)
 })
 let myEvil_Duck: Sprite = null
 let myHero: Sprite = null
-while (game.ask("You wanna play hard mode?", "or you're too scared?")) {
-	
-}
 if (game.ask("You wanna play hard mode?", "or you're too scared?")) {
     game2()
 } else {
     game1()
 }
-game.onUpdateInterval(10000, function () {
-    info.changeScoreBy(1)
-    myEvil_Duck = sprites.create(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . b 5 5 b . . . 
-        . . . . . . b b b b b b . . . . 
-        . . . . . b b 5 5 5 5 5 b . . . 
-        . b b b b b 5 5 5 5 5 5 5 b . . 
-        . b d 5 b 5 5 5 5 5 5 5 5 b . . 
-        . . b 5 5 b 5 d 1 f 5 d 4 f . . 
-        . . b d 5 5 b 1 f f 5 4 4 c . . 
-        b b d b 5 5 5 d f b 4 4 4 4 b . 
-        b d d c d 5 5 b 5 4 4 4 4 4 4 b 
-        c d d d c c b 5 5 5 5 5 5 5 b . 
-        c b d d d d d 5 5 5 5 5 5 5 b . 
-        . c d d d d d d 5 5 5 5 5 d b . 
-        . . c b d d d d d 5 5 5 b b . . 
-        . . . c c c c c c c c b b . . . 
-        `, SpriteKind.Enemy)
-    myEvil_Duck.setPosition(148, 2)
-    myEvil_Duck.follow(myHero, 50, 50)
-})
